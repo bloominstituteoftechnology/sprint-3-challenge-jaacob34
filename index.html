@@ -18,7 +18,6 @@
     .widget p {
       font-style: italic;
     }
-
   </style>
 </head>
 
@@ -52,31 +51,20 @@
       getAll = () => this.ints
 
       getEvens = () => {
-        let evens = []
-      
-          for (let i in this.ints) {
-            const num = this.ints[i]
-            if (num % 2 === 0) {
-              evens.push(num)
-            }
-            
-          }
-          return evens
-        }
+        let evens = this.ints.filter(ints => ints % 2 === 0)
+        return evens
+      }
 
-        getNegatives = () => {
-          let negatives = []
-      
-          for (let i in this.ints) {
-            const num = this.ints[i]
-            if (num < 0) {
-              negatives.push(num)
-            }
-            
-          }
-          return negatives
-        }
-      
+      getNegatives = () => {
+        let negatives = this.ints.filter(ints => ints < 0)
+        return negatives
+      }
+
+      getAllSquared = () => {
+        let squared = this.ints.map(ints => ints ** 2)
+        return squared
+      }
+
       // 🧠 Constructor takes **any** number of arguments, which are integers
       // 🧠 Instances have an `ints` property which is an array holding the integers above in the same order
       // 🧠 Implement a `getAll` method which returns the data held in the `ints` property
