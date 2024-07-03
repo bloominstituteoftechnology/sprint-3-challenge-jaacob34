@@ -46,6 +46,37 @@
 
     // 👉 CHALLENGE 1 - Integers
     class Integers {
+      constructor(...nums) {
+        this.ints = nums
+      }
+      getAll = () => this.ints
+
+      getEvens = () => {
+        let evens = []
+      
+          for (let i in this.ints) {
+            const num = this.ints[i]
+            if (num % 2 === 0) {
+              evens.push(num)
+            }
+            
+          }
+          return evens
+        }
+
+        getNegatives = () => {
+          let negatives = []
+      
+          for (let i in this.ints) {
+            const num = this.ints[i]
+            if (num < 0) {
+              negatives.push(num)
+            }
+            
+          }
+          return negatives
+        }
+      
       // 🧠 Constructor takes **any** number of arguments, which are integers
       // 🧠 Instances have an `ints` property which is an array holding the integers above in the same order
       // 🧠 Implement a `getAll` method which returns the data held in the `ints` property
