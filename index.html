@@ -44,6 +44,8 @@
     // ❗ Debug properly using the Console
 
     // 👉 CHALLENGE 1 - Integers
+    let snag = [[1, 2, 3], [1, 2, 3]]
+    console.log(snag)
     class Integers {
       constructor(...nums) {
         this.ints = nums
@@ -63,6 +65,30 @@
       getAllSquared = () => {
         let squared = this.ints.map(ints => ints ** 2)
         return squared
+      }
+
+      pop = () => this.ints.pop()
+
+
+      push = () => {
+        this.ints.push(this.ints.length + 1);
+        return this.ints;
+      };
+
+      getEveryNth = (n) => {
+        const result = [];
+        for (let i = 0; i < this.ints.length; i += n) {
+          result.push(this.ints[i]);
+        }
+        return result;
+      }
+
+      getAllReversed = () => {
+        const result = []
+        for (let i = this.ints.length - 1; i >= 0; i--) {
+          result.push(this.ints[i])
+        }
+        return result
       }
 
       // 🧠 Constructor takes **any** number of arguments, which are integers
