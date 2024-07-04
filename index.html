@@ -108,21 +108,60 @@
 
     // 👉 CHALLENGE 2 NerfGun
     class NerfGun {
-      // 🧠 Constructor takes one argument: the total number of projectiles supported by the instance
-      // 🧠 New instances initialize fully loaded and with the safety on
-      // 🧠 Instances have a `shoot` method that takes no arguments:
-      //      * If there is ammo left and safety is off, method consumes one projectile and returns the string "Bang!"
-      //      * Shooting on empty or with the safety on, returns the string "Click!"
-      // 🧠 Instances have a `reload` method that takes a number and tops up the instance by that number
-      //      * Reloading returns a string in the following format: "<number> projectiles left!"
-      //      * Reloading by more than capacity fills the instance to capacity
-      //      * Passing an argument which is not a number larger than zero returns the string "Error reloading!"
-      // 🧠 Instances have a `toggleSafety` method that takes no arguments and switches the state of the safety
-      //      * When engaging the safety, return "Safety enabled!"
-      //      * When disengaging the safety, return "Safety disabled!"
-      // 🌟 HINT: instances need to keep track of their maximum capacity as well as their current capacity
+      constructor(projectiles) {
+        this.projectiles = projectiles
+        this.safety = true
+        this.original = projectiles
+      }
+
+      toggleSafety = () => {
+        this.safety = !this.safety
+        return this.safety === true ? 'Safety enabled!' : 'Safety disabled!'
+
+      }
+
+      shoot = () => {
+
+        if (this.projectiles === 0) {
+          return 'Click!'
+        }
+
+        if (this.safety === false) {
+          console.log(this.projectiles)
+          console.log('original --->' + this.original)
+          this.projectiles -= 1
+        }
+
+        return this.safety === true ? 'Click!' : 'Bang!'
+      }
+//3,3,6
+      reload = (num) => {
+
+        this.projectiles += num
+        if (typeof num !== 'number' || num <= 0) {
+          return 'Error reloading!'
+        }
+        if (this.projectiles > this.original) {
+          this.projectiles = this.original
+        } 
+
+        return `${this.projectiles} projectiles left!`
+      }
 
     }
+    // 🧠 Constructor takes one argument: the total number of projectiles supported by the instance
+    // 🧠 New instances initialize fully loaded and with the safety on
+    // 🧠 Instances have a `shoot` method that takes no arguments:
+    //      * If there is ammo left and safety is off, method consumes one projectile and returns the string "Bang!"
+    //      * Shooting on empty or with the safety on, returns the string "Click!"
+    // 🧠 Instances have a `reload` method that takes a number and tops up the instance by that number
+    //      * Reloading returns a string in the following format: "<number> projectiles left!"
+    //      * Reloading by more than capacity fills the instance to capacity
+    //      * Passing an argument which is not a number larger than zero returns the string "Error reloading!"
+    // 🧠 Instances have a `toggleSafety` method that takes no arguments and switches the state of the safety
+    //      * When engaging the safety, return "Safety enabled!"
+    //      * When disengaging the safety, return "Safety disabled!"
+    // 🌟 HINT: instances need to keep track of their maximum capacity as well as their current capacity
 
     // 👉 CHALLENGE 3 EBook
     class EBook {
