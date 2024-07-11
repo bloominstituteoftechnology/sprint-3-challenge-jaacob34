@@ -44,8 +44,6 @@
     // ❗ Debug properly using the Console
 
     // 👉 CHALLENGE 1 - Integers
-    let snag = [[1, 2, 3], [1, 2, 3]]
-    console.log(snag)
     class Integers {
       constructor(...nums) {
         this.ints = nums
@@ -70,9 +68,9 @@
       pop = () => this.ints.pop()
 
 
-      push = () => {
-        this.ints.push(this.ints.length + 1);
-        return this.ints;
+      push = (...num) => {
+        this.ints.push(...num)
+        console.log(this.ints)
       };
 
       getEveryNth = (n) => {
@@ -127,8 +125,6 @@
         }
 
         if (this.safety === false) {
-          console.log(this.projectiles)
-          console.log('original --->' + this.original)
           this.projectiles -= 1
         }
 
@@ -229,7 +225,7 @@
             foundAnt = ant
           }
         })
-        console.log(foundAnt)
+    
         if (foundAnt) {
           return 'Yum!'
         } else {
